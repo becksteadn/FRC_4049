@@ -1,0 +1,68 @@
+
+package org.usfirst.frc.team4049.robot;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
+import gui.GUI;
+
+
+public class Robot extends IterativeRobot {
+
+	Joystick xbox = new Joystick(0);
+	boolean a_button, b_button, x_button, y_button;
+	double x_left, y_left, x_right, y_right;
+	int xbox_pov;
+	
+	Talon front_left = new Talon(6);
+	Talon back_left = new Talon(7);
+	Talon front_right = new Talon(8);
+	Talon back_right = new Talon(9);
+	
+	RobotDrive main_drive = new RobotDrive(front_left, back_left, front_right, back_right);
+	
+	Talon lift = new Talon(5);
+	Encoder enc_lift = new Encoder(0,1);
+	
+	Joystick control_panel = new Joystick(0);
+	
+    public void robotInit() {
+    		GUI.initFrame();
+    		GUI.addToList("Working");
+    }
+
+
+    public void autonomousPeriodic() {
+    	
+    }
+
+
+    public void teleopPeriodic() {
+        main_drive.mecanumDrive_Cartesian(xbox.getRawAxis(0), xbox.getRawAxis(1), xbox.getRawAxis(4), 0);
+        
+        if(xbox.getRawButton(1)){
+        	GUI.addToList("A Button");
+        }
+        
+        if(xbox.getRawButton(2)){
+        	GUI.addToList("B Button");
+        }
+        
+        if(xbox.getRawButton(3)){
+        	GUI.addToList("X Button");
+        }
+        
+        if(xbox.getRawButton(4)){
+        	GUI.addToList("Y Button");
+        }
+        
+    }
+
+    public void testPeriodic() {
+    
+    }
+    
+}
