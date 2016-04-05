@@ -1,0 +1,3 @@
+Robot.java - Runs the RIO code
+Auto.java - An Autonomous mode class to design auto modes
+VisionAssistant.java - Holds all methods for network tables and auto-align
