@@ -1,0 +1,3 @@
+NT_Client.java - NetworkTables Client that opens windows and communicates with network tables
+Centering.java - Window that tells if robot is left, right, or centered
+OutputPanel.java - Window that controls shooter on/off, text output, and autonomous mode selection.
